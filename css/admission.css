@@ -1,0 +1,30 @@
+body{
+    background-color: gray; background-image: url(background\ \(1\).gif); background-repeat: repeat-x;
+}
+#maindiv{
+    margin-left: 180px;
+    width: 80%;
+    height: 800px;
+}
+a{
+    color: aliceblue; font-size: 25px;
+}
+#Admission{
+    font-size: 40px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: brown ;
+}
+table{
+     margin-left: 300px; width: 800px; height: 600px; background-color: aqua; text-align: center;
+}
+th{
+    background-color: rgb(83, 183, 230); color: red; font-size: 30px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-weight: bolder; 
+}
+td{background-color: chartreuse; font-size: 25px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-weight: bold; 
+
+}
+h5{
+    font-size: 25px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight: 100; color: rgb(211, 51, 168);
+}
+a:hover {
+    color: rgb(203, 18, 18);}

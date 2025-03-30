@@ -1,0 +1,179 @@
+/* #para1 {width: 500px; height: 290px; border: 2px solid black; padding: 20px 20px 20px 20px; background-color: aqua; margin-left: 100px;}
+#para2 {width: 500px; height: 290px; border: 2px solid black; padding: 20px 20px 20px 20px;position: absolute; left: 960px; top: 275px;background-color: rgb(122, 241, 173);}
+#para3 {width: 500px; height: 290px; border: 2px solid black; padding: 20px 20px 20px 20px; position: absolute; right: 350px; top: 650px;background-color: rgb(91, 86, 231);}
+#para4 {width: 500px; height: 290px; border: 2px solid black; padding: 20px 20px 20px 20px;background-color: rgb(229, 92, 199);}
+
+*/
+body{
+   background-color: gray; background-image: url(background\ \(1\).gif); background-repeat: repeat-x;
+}
+
+#maindiv {margin-left: 180px; }
+button {text-decoration: none;color: white;  background-color: rgb(192, 39, 15); font-size: medium;}
+ a:hover {
+    color: rgb(203, 18, 18);}
+    a {color: white; font-size:25px ;text-decoration: none;} 
+     /* body {
+      background-color: gray;
+      background-image: url('background (1).gif');
+      background-repeat: repeat-x;
+   }
+   
+   #maindiv {
+      margin-left: 180px;
+   } */
+   
+   /* button {
+      text-decoration: none;
+      color: white;
+      background-color: rgb(192, 39, 15);
+      font-size: medium;
+   } */
+   
+   /* a {
+      color: white;
+      font-size: 25px;
+      text-decoration: none;
+   }
+   
+   a:hover {
+      color: rgb(203, 18, 18);
+   } */
+   /* 
+   #para1, #para2, #para3, #para4 {
+      width: 500px;
+      height: 290px;
+      border: 2px solid black;
+      padding: 20px;
+   }
+   
+   #para1 {
+      background-color: aqua;
+      margin-left: 100px;
+   }
+   
+   #para2 {
+      position: absolute;
+      left: 960px;
+      top: 275px;
+      background-color: rgb(122, 241, 173);
+   }
+   
+   #para3 {
+      position: absolute;
+      right: 350px;
+      top: 650px;
+      background-color: rgb(91, 86, 231);
+   }
+   
+   #para4 {
+      background-color: rgb(229, 92, 199);
+   } */
+   /* body {
+      background-color: gray;
+      background-image: url('background (1).gif');
+      background-repeat: repeat-x;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+  }
+  
+  #maindiv {
+      margin: 0 auto;
+      width: 80%;
+      border: 2px solid transparent;
+  }
+  
+  #logo {
+      width: 100%;
+      height: 140px;
+      text-align: center;
+      border: 2px solid transparent;
+  }
+  
+  #logo img {
+      height: 140px;
+      width: 200px;
+      margin-left: 200px;
+  }
+  
+  #topnav {
+      border: 2px solid transparent;
+      height: 25px;
+      width: 100%;
+      margin-top: 20px;
+  }
+  
+  #topnav nav {
+      float: right;
+      position: relative;
+      top: 20px;
+      right: 100px;
+      word-spacing: 20px;
+  } */
+  
+  /* button {
+      text-decoration: none;
+      color: white;
+      background-color: rgb(192, 39, 15);
+      font-size: medium;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+  }
+  
+  a {
+      color: white;
+      font-size: 25px;
+      text-decoration: none;
+  }
+  
+  a:hover {
+      color: rgb(203, 18, 18);
+  }
+  */
+  #mainContent {
+      border: 1px solid rgb(198, 6, 6);
+      width: 80%;
+      height: 100%;
+      margin-top: 100px;
+      padding: 50px;
+      background-color: aliceblue;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      grid-gap: 10px;
+  }
+   
+  #para1, #para2, #para3, #para4 {
+   margin-top: 0px;
+   margin-left: 120px;
+      width: 50%;
+      height: 390px;
+      border: 2px solid black;
+      padding: 30px;
+      background-color: lightgray;
+  }
+  
+  #para1 {
+      background-color: aqua;
+  }
+  
+  #para2 {
+      background-color: rgb(122, 241, 173);
+  }
+  
+  #para3 {
+      background-color: rgb(91, 86, 231);
+  }
+  
+  #para4 {
+      background-color: rgb(229, 92, 199);
+  }
+  
+  #para1 img, #para2 img, #para3 img, #para4 img {
+      float: left;
+      padding: 10px;
+      width: 200px;
+      height: 100px;
+  }
+  

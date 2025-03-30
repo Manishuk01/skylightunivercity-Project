@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyLight University - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        #maindiv {
+            max-width: 1800px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        #logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            background-color: var(--primary-color);
+            height: 140px;
+        }
+        
+        #logo img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .university-name {
+            color: white;
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .university-name h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .university-name p {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        
+        #topnav {
+            background-color: var(--secondary-color);
+            padding: 15px 50px;
+        }
+        
+        #topnav nav {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        #topnav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        #topnav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        #topnav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        
+        #maincontent {
+            background-color: white;
+            padding: 40px;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1400px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .campus-gallery {
+            margin: 40px 0;
+        }
+        
+        .campus-gallery h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .campus-gallery h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+        
+        .about-section {
+            margin: 50px 0;
+        }
+        
+        .about-section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .about-section p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .affiliated-colleges {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 4px solid var(--secondary-color);
+        }
+        
+        .affiliated-colleges summary {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            outline: none;
+            padding: 10px;
+        }
+        
+        .affiliated-colleges ul {
+            margin-top: 15px;
+            padding-left: 20px;
+        }
+        
+        .affiliated-colleges li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .newsletter {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .newsletter h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .newsletter p {
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: var(--dark-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Media Queries for Responsive Design */
+        
+        /* Large tablets and small laptops (1024px and below) */
+        @media (max-width: 1024px) {
+            #logo {
+                padding: 0 30px;
+            }
+            
+            .university-name h1 {
+                font-size: 2.2rem;
+            }
+            
+            #maincontent {
+                padding: 30px;
+            }
+        }
+        
+        /* Tablets (768px and below) */
+        @media (max-width: 768px) {
+            #logo {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            #logo img {
+                margin-bottom: 15px;
+                margin-left: 0;
+            }
+            
+            .university-name h1 {
+                font-size: 1.8rem;
+            }
+            
+            #topnav {
+                padding: 10px 20px;
+            }
+            
+            #topnav nav {
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            #topnav a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            
+            #maincontent {
+                padding: 25px;
+                width: 95%;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+                padding: 12px;
+            }
+        }
+        
+        /* Large smartphones (576px and below) */
+        @media (max-width: 576px) {
+            .university-name h1 {
+                font-size: 1.6rem;
+            }
+            
+            .university-name p {
+                font-size: 0.9rem;
+            }
+            
+            #topnav a {
+                padding: 6px 8px;
+                font-size: 0.85rem;
+            }
+            
+            #maincontent {
+                padding: 20px;
+            }
+            
+            .campus-gallery h2,
+            .about-section h2 {
+                font-size: 1.5rem;
+            }
+            
+            .about-section p {
+                font-size: 0.9rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links a {
+                margin: 5px 0;
+            }
+        }
+        
+        /* Small smartphones (400px and below) */
+        @media (max-width: 400px) {
+            .university-name h1 {
+                font-size: 1.4rem;
+            }
+            
+            #topnav a {
+                font-size: 0.8rem;
+                padding: 5px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="logo">
+            <img src="IMAGES/logo.gif" alt="Skylight University Logo">
+            <div class="university-name">
+                <h1>Skylight University</h1>
+                <p>Empowering Minds, Transforming Lives</p>
+            </div>
+        </div>
+        <div id="topnav">
+            <nav>
+                <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a>
+                <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+                <a href="placements details.html"><i class="fas fa-user-tie"></i> Placement</a>
+                <a href="skylight university sign in.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                <a href="skylightcourseform.html"><i class="fas fa-file-alt"></i> Course Form</a>
+                <a href="Universitygallery.html" class="active"><i class="fas fa-images"></i> Gallery</a>
+                <a href="admission.html"><i class="fas fa-graduation-cap"></i> Admission</a>
+            </nav>
+        </div>
+        <div id="maincontent">
+            <div class="campus-gallery">
+                <h2>Our College Campus</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="IMAGES/Campusimage1.png" alt="Campus Building">
+                        <div class="gallery-caption">Main Academic Building</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMAGES/Campusimage2.png" alt="Campus Library">
+                        <div class="gallery-caption">University Library</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMAGES/Campusimage3.jpg" alt="Campus Grounds">
+                        <div class="gallery-caption">Central Campus Grounds</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMAGES/Campusimage4.jpg" alt="Student Center">
+                        <div class="gallery-caption">Student Activity Center</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="IMAGES/Campusimage5.jpg" alt="Sports Complex">
+                        <div class="gallery-caption">Athletics Complex</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <h2>Welcome to Skylight University</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos quod facere nam adipisci dolorem reprehenderit suscipit neque quisquam, perferendis perspiciatis, iure, quis excepturi a blanditiis incidunt alias ab eaque voluptas necessitatibus libero dolorum! Eaque dolores magni sequi eius nisi similique cumque dolor et, officia odio beatae? Tempora quas officia explicabo, sapiente inventore, voluptate, aliquid fugiat quam nam laborum praesentium libero?</p>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque magni consequuntur laboriosam doloremque cum rerum obcaecati aliquid ipsum id nesciunt earum, error excepturi reiciendis! Eligendi saepe possimus distinctio dignissimos dolore non, a repellat. Consequatur consectetur molestiae quae, nam soluta ea deleniti voluptate eveniet, itaque autem possimus ad quasi, ab debitis ducimus incidunt magni animi ullam dignissimos molestias!</p>
+                
+                <div class="affiliated-colleges">
+                    <details>
+                        <summary>Our Affiliated Colleges</summary>
+                        <ul>
+                            <li>Chicago Campus</li>
+                            <li>Houston Campus</li>
+                            <li>Los Angeles Campus</li>
+                        </ul>
+                    </details>
+                </div>
+            </div>
+            
+            <div class="newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest news and updates from Skylight University</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 Skylight University. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple animation for the newsletter form
+        document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing to our newsletter!');
+            this.reset();
+        });
+        
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Skylight University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        #maindiv {
+            max-width: 1800px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        #logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            background-color: var(--primary-color);
+            height: 140px;
+        }
+        
+        #logo img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .university-name {
+            color: white;
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .university-name h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .university-name p {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        
+        #topnav {
+            background-color: var(--secondary-color);
+            padding: 15px 50px;
+        }
+        
+        #topnav nav {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        #topnav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        #topnav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        #topnav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        
+        #mainContent {
+            background-color: white;
+            padding: 40px;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1400px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .page-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .about-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            background-color: var(--light-color);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .about-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+        
+        .about-content {
+            flex: 1;
+            padding: 30px;
+        }
+        
+        .about-content h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Media Queries for Responsive Design */
+        
+        /* Large tablets and small laptops (1024px and below) */
+        @media (max-width: 1024px) {
+            #logo {
+                padding: 0 30px;
+            }
+            
+            .university-name h1 {
+                font-size: 2.2rem;
+            }
+            
+            #mainContent {
+                padding: 30px;
+            }
+            
+            .about-content {
+                padding: 20px;
+            }
+        }
+        
+        /* Tablets (768px and below) */
+        @media (max-width: 768px) {
+            #logo {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            #logo img {
+                margin-bottom: 15px;
+            }
+            
+            .university-name h1 {
+                font-size: 1.8rem;
+            }
+            
+            #topnav {
+                padding: 10px 20px;
+            }
+            
+            #topnav nav {
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            #topnav a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            
+            #mainContent {
+                padding: 25px;
+                width: 95%;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .about-section {
+                flex-direction: column;
+            }
+            
+            .about-section:nth-child(even) {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+                min-height: 250px;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* Large smartphones (576px and below) */
+        @media (max-width: 576px) {
+            .university-name h1 {
+                font-size: 1.6rem;
+            }
+            
+            .university-name p {
+                font-size: 0.9rem;
+            }
+            
+            #topnav a {
+                padding: 6px 8px;
+                font-size: 0.85rem;
+            }
+            
+            #mainContent {
+                padding: 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .page-header p {
+                font-size: 0.9rem;
+            }
+            
+            .about-content {
+                padding: 20px;
+            }
+            
+            .about-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links a {
+                margin: 5px 0;
+            }
+        }
+        
+        /* Small smartphones (400px and below) */
+        @media (max-width: 400px) {
+            .university-name h1 {
+                font-size: 1.4rem;
+            }
+            
+            #topnav a {
+                font-size: 0.8rem;
+                padding: 5px 6px;
+            }
+            
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .about-image {
+                min-height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="logo">
+            <img src="IMAGES/logo.gif" alt="Skylight University Logo">
+            <div class="university-name">
+                <h1>Skylight University</h1>
+                <p>Empowering Minds, Transforming Lives</p>
+            </div>
+        </div>
+        <div id="topnav">
+            <nav>
+                <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a>
+                <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+                <a href="placements details.html"><i class="fas fa-user-tie"></i> Placement</a>
+                <a href="skylight university sign in.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                <a href="skylightcourseform.html"><i class="fas fa-file-alt"></i> Course Form</a>
+                <a href="Universitygallery.html" class="active"><i class="fas fa-images"></i> Gallery</a>
+                <a href="admission.html"><i class="fas fa-graduation-cap"></i> Admission</a>
+            </nav>
+        </div>
+        <div id="mainContent">
+            <div class="page-header">
+                <h1>About Skylight University</h1>
+                <p>Discover our rich history, mission, and commitment to academic excellence that has shaped generations of leaders and innovators.</p>
+            </div>
+            
+            <div class="about-section">
+                <div class="about-content">
+                    <h2>Our Story</h2>
+                    <p>Founded in 1985, Skylight University has grown from a small college to a nationally recognized institution of higher learning. Our journey has been marked by innovation, dedication to student success, and a commitment to pushing the boundaries of knowledge.</p>
+                    <p>Today, we stand as a beacon of academic excellence with over 15,000 students across our various programs. Our alumni network spans the globe, making significant contributions in their respective fields.</p>
+                    <button class="btn">Explore Our History</button>
+                </div>
+                <div class="about-image" style="background-image: url('IMAGES/students\ future.jpg');"></div>
+            </div>
+            
+            <div class="about-section">
+                <div class="about-content">
+                    <h2>Our Services & Benefits</h2>
+                    <p>At Skylight University, we provide comprehensive support services designed to help students thrive academically, personally, and professionally. From state-of-the-art learning facilities to personalized career counseling, we're committed to your success.</p>
+                    <p>Our benefits include cutting-edge research opportunities, internship programs with industry leaders, study abroad options, and a vibrant campus life that fosters personal growth and lifelong connections.</p>
+                    <button class="btn">Discover Student Services</button>
+                </div>
+                <div class="about-image" style="background-image: url('IMAGES/students\ img.jpg');"></div>
+            </div>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">95%</div>
+                    <div class="stat-label">Graduation Rate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15K+</div>
+                    <div class="stat-label">Students Enrolled</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200+</div>
+                    <div class="stat-label">Programs Offered</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">87%</div>
+                    <div class="stat-label">Employment Rate</div>
+                </div>
+            </div>
+            
+            <div class="about-section">
+                <div class="about-content">
+                    <h2>Our Mission & Vision</h2>
+                    <p>We foster our students' love for learning, encourage them to try new and exciting things, and give them a solid foundation to build on. Our vision is to develop well-rounded, confident and responsible individuals who aspire to achieve their full potential.</p>
+                    <p>We will do this by providing a welcoming, happy, safe, and supportive learning environment in which everyone is equal and all achievements are celebrated. We believe that a happy student is a successful one.</p>
+                    <button class="btn">Learn About Our Values</button>
+                </div>
+                <div class="about-image" style="background-image: url('IMAGES/our\ mission\ and\ future\ plan.jpg');"></div>
+            </div>
+            
+            <div class="about-section">
+                <div class="about-content">
+                    <h2>Career Opportunities</h2>
+                    <p>Many jobs require a college degree. Depending on the level of the position you wish to obtain, you may need a certain type of degree. Entry-level positions will often require either an associate's degree or a bachelor's degree.</p>
+                    <p>If you want to specialize in a certain field and work in a senior position, then you may need to consider higher-level degrees, like a master's or doctoral degree. Our career services team is dedicated to helping you navigate these choices.</p>
+                    <button class="btn">Explore Career Paths</button>
+                </div>
+                <div class="about-image" style="background-image: url('IMAGES/campus\ placement.jpg');"></div>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 Skylight University. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+ h3 {font-size: 25px;font-style: italic; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;font-weight: bold; color: blue;}
+ h1 {font-size: 35px;font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;font-weight: bolder;}
+ #MainContent {border:1px solid rgb(198, 6, 6);width:1400px;height:900px; margin-top:50px; margin: left 20px;  padding: 50px 50px 50px 50px; background-color: aliceblue;}
+ a {color: white;  text-decoration:none ;font-size:25px ;}
+ #para1 {padding: 10px;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+ #para2 {padding: 10px;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+ #para3 {padding: 10px;font-size: 18px;font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
+ body{
+    background-color: gray;background-image: url(background\ \(1\).gif); background-repeat: repeat-x;
+ }
+ #maindiv {margin-left: 180px;}
+ a:hover {
+   color: rgb(203, 18, 18);}

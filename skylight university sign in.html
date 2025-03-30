@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | Skylight University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        #maindiv {
+            max-width: 1800px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        #logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            background-color: var(--primary-color);
+            height: 140px;
+        }
+        
+        #logo img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .university-name {
+            color: white;
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .university-name h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .university-name p {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        
+        #topnav {
+            background-color: var(--secondary-color);
+            padding: 15px 50px;
+        }
+        
+        #topnav nav {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        #topnav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        #topnav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        #topnav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        
+        #mainContent {
+            background-color: white;
+            padding: 40px;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1400px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+        }
+        
+        .auth-container {
+            flex: 1;
+            min-width: 350px;
+            max-width: 500px;
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .auth-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .auth-header h2::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .auth-header p {
+            color: #666;
+            margin-top: 15px;
+        }
+        
+        .auth-form {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+        
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        .btn-success {
+            background-color: var(--success-color);
+            box-shadow: 0 4px 8px rgba(39, 174, 96, 0.3);
+        }
+        
+        .btn-success:hover {
+            background-color: #219653;
+            box-shadow: 0 6px 12px rgba(39, 174, 96, 0.4);
+        }
+        
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        .form-footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .error-message {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        .input-error {
+            border-color: var(--accent-color) !important;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Media Queries for Responsive Design */
+        
+        /* Large tablets and small laptops (1024px and below) */
+        @media (max-width: 1024px) {
+            #logo {
+                padding: 0 30px;
+            }
+            
+            .university-name h1 {
+                font-size: 2.2rem;
+            }
+            
+            #mainContent {
+                padding: 30px;
+            }
+        }
+        
+        /* Tablets (768px and below) */
+        @media (max-width: 768px) {
+            #logo {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            #logo img {
+                margin-bottom: 15px;
+                margin-left: 0;
+            }
+            
+            .university-name h1 {
+                font-size: 1.8rem;
+            }
+            
+            #topnav {
+                padding: 10px 20px;
+            }
+            
+            #topnav nav {
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            #topnav a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            
+            #mainContent {
+                padding: 25px;
+                width: 95%;
+            }
+            
+            .auth-container {
+                min-width: 100%;
+            }
+        }
+        
+        /* Large smartphones (576px and below) */
+        @media (max-width: 576px) {
+            .university-name h1 {
+                font-size: 1.6rem;
+            }
+            
+            .university-name p {
+                font-size: 0.9rem;
+            }
+            
+            #topnav a {
+                padding: 6px 8px;
+                font-size: 0.85rem;
+            }
+            
+            #mainContent {
+                padding: 20px;
+            }
+            
+            .auth-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .auth-form {
+                padding: 20px;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links a {
+                margin: 5px 0;
+            }
+        }
+        
+        /* Small smartphones (400px and below) */
+        @media (max-width: 400px) {
+            .university-name h1 {
+                font-size: 1.4rem;
+            }
+            
+            #topnav a {
+                font-size: 0.8rem;
+                padding: 5px 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="logo">
+            <img src="IMAGES/logo.gif" alt="Skylight University Logo">
+            <div class="university-name">
+                <h1>Skylight University</h1>
+                <p>Empowering Minds, Transforming Lives</p>
+            </div>
+        </div>
+        <div id="topnav">
+            <nav>
+                <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a>
+                <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+                <a href="placements details.html"><i class="fas fa-user-tie"></i> Placement</a>
+                <a href="skylight university sign in.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                <a href="skylightcourseform.html"><i class="fas fa-file-alt"></i> Course Form</a>
+                <a href="Universitygallery.html" class="active"><i class="fas fa-images"></i> Gallery</a>
+                <a href="admission.html"><i class="fas fa-graduation-cap"></i> Admission</a>
+            </nav>
+        </div>
+        <div id="mainContent">
+            <div class="auth-container">
+                <div class="auth-header">
+                    <h2>Create an Account</h2>
+                    <p>Join our community of students and alumni</p>
+                </div>
+                <form class="auth-form" id="signupForm" name="signup">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" name="firstName" required>
+                        <div class="error-message" id="firstNameError">Please enter only alphabets</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" name="lastName" required>
+                        <div class="error-message" id="lastNameError">Please enter only alphabets</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                        <i class="fas fa-eye password-toggle" id="togglePassword1"></i>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
+                        <i class="fas fa-eye password-toggle" id="togglePassword2"></i>
+                        <div class="error-message" id="passwordError">Passwords do not match</div>
+                    </div>
+                    <button type="submit" class="btn btn-success">Register</button>
+                    <div class="form-footer">
+                        Already have an account? <a href="#" id="showSignIn">Sign In</a>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="auth-container" id="signInContainer" style="display: none;">
+                <div class="auth-header">
+                    <h2>Sign In</h2>
+                    <p>Welcome back to Skylight University</p>
+                </div>
+                <form class="auth-form" id="signinForm" name="signin">
+                    <div class="form-group">
+                        <label for="signinEmail">Email Address</label>
+                        <input type="email" id="signinEmail" name="signinEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signinPassword">Password</label>
+                        <input type="password" id="signinPassword" name="signinPassword" required>
+                        <i class="fas fa-eye password-toggle" id="togglePassword3"></i>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-footer" style="text-align: left; margin: 0;">
+                            <input type="checkbox" id="rememberMe" name="rememberMe">
+                            <label for="rememberMe">Remember me</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn">Sign In</button>
+                    <div class="form-footer">
+                        Don't have an account? <a href="#" id="showSignUp">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 Skylight University. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle between sign up and sign in forms
+        document.getElementById('showSignIn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('signInContainer').style.display = 'block';
+            document.querySelector('.auth-container:first-child').style.display = 'none';
+        });
+        
+        document.getElementById('showSignUp').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('signInContainer').style.display = 'none';
+            document.querySelector('.auth-container:first-child').style.display = 'block';
+        });
+        
+        // Password toggle functionality
+        const togglePassword = (toggleId, inputId) => {
+            const toggle = document.getElementById(toggleId);
+            const input = document.getElementById(inputId);
+            
+            toggle.addEventListener('click', function() {
+                const type = input.getAttribute('type') === 'password' ? 'text' : 'password';
+                input.setAttribute('type', type);
+                this.classList.toggle('fa-eye-slash');
+            });
+        };
+        
+        togglePassword('togglePassword1', 'password');
+        togglePassword('togglePassword2', 'confirmPassword');
+        togglePassword('togglePassword3', 'signinPassword');
+        
+        // Name validation
+        const validateName = (inputId, errorId) => {
+            const input = document.getElementById(inputId);
+            const error = document.getElementById(errorId);
+            
+            input.addEventListener('input', function() {
+                if(!this.value.match(/^[a-zA-Z]+$/) && this.value !== "") {
+                    this.classList.add('input-error');
+                    error.style.display = 'block';
+                } else {
+                    this.classList.remove('input-error');
+                    error.style.display = 'none';
+                }
+            });
+        };
+        
+        validateName('firstName', 'firstNameError');
+        validateName('lastName', 'lastNameError');
+        
+        // Password match validation
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            const error = document.getElementById('passwordError');
+            
+            if(password !== confirmPassword) {
+                this.classList.add('input-error');
+                error.style.display = 'block';
+            } else {
+                this.classList.remove('input-error');
+                error.style.display = 'none';
+            }
+        });
+        
+        // Form submission
+        document.getElementById('signupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            // Check if names contain only letters
+            if(!firstName.match(/^[a-zA-Z]+$/) || !lastName.match(/^[a-zA-Z]+$/)) {
+                alert('Please enter only alphabets in name fields');
+                return;
+            }
+            
+            // Check if passwords match
+            if(password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            // Store in localStorage (for demo purposes)
+            if(typeof(Storage) !== "undefined") {
+                localStorage.setItem('userEmail', document.getElementById('email').value);
+                localStorage.setItem('userPassword', password);
+                alert('Registration successful! You can now sign in.');
+                document.getElementById('signInContainer').style.display = 'block';
+                this.parentElement.style.display = 'none';
+                this.reset();
+            } else {
+                alert('Registration failed. Your browser does not support local storage.');
+            }
+        });
+        
+        document.getElementById('signinForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('signinEmail').value;
+            const password = document.getElementById('signinPassword').value;
+            const storedEmail = localStorage.getItem('userEmail');
+            const storedPassword = localStorage.getItem('userPassword');
+            
+            if(email === storedEmail && password === storedPassword) {
+                alert('Sign in successful! Welcome to Skylight University.');
+                // Redirect to dashboard or home page in a real implementation
+                // window.location.href = "dashboard.html";
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        });
+        
+        // Auto-fill sign in form if remember me was checked
+        document.addEventListener('DOMContentLoaded', function() {
+            if(localStorage.getItem('rememberMe') === 'true') {
+                document.getElementById('signinEmail').value = localStorage.getItem('userEmail') || '';
+                document.getElementById('rememberMe').checked = true;
+            }
+        });
+    </script>
+</body>
+</html>

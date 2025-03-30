@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | Skylight University</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7fa;
+        }
+        
+        #maindiv {
+            max-width: 1800px;
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        #logo {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            background-color: var(--primary-color);
+            height: 140px;
+        }
+        
+        #logo img {
+            height: 120px;
+            width: auto;
+        }
+        
+        .university-name {
+            color: white;
+            text-align: center;
+            flex-grow: 1;
+        }
+        
+        .university-name h1 {
+            font-size: 2.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .university-name p {
+            font-size: 1rem;
+            font-weight: 300;
+        }
+        
+        #topnav {
+            background-color: var(--secondary-color);
+            padding: 15px 50px;
+        }
+        
+        #topnav nav {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        #topnav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        #topnav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        #topnav a.active {
+            background-color: rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        
+        #MainContent {
+            background-color: white;
+            padding: 40px;
+            margin: 30px auto;
+            width: 90%;
+            max-width: 1400px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .page-header h1 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            position: relative;
+        }
+        
+        .page-header h1::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .page-header p {
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        .hero-section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+            gap: 40px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-content h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .career-section {
+            margin-bottom: 60px;
+        }
+        
+        .career-section h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light-color);
+        }
+        
+        .career-section p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .image-grid {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .image-grid img {
+            width: 50%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .image-grid img:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+        }
+        
+        .benefits-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--secondary-color);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .benefit-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .benefit-card p {
+            color: #666;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Media Queries for Responsive Design */
+        
+        /* Large tablets and small laptops (1024px and below) */
+        @media (max-width: 1024px) {
+            #logo {
+                padding: 0 30px;
+            }
+            
+            .university-name h1 {
+                font-size: 2.2rem;
+            }
+            
+            #MainContent {
+                padding: 30px;
+            }
+            
+            .hero-section {
+                gap: 30px;
+            }
+        }
+        
+        /* Tablets (768px and below) */
+        @media (max-width: 768px) {
+            #logo {
+                flex-direction: column;
+                height: auto;
+                padding: 20px;
+                text-align: center;
+            }
+            
+            #logo img {
+                margin-bottom: 15px;
+                margin-left: 0;
+            }
+            
+            .university-name h1 {
+                font-size: 1.8rem;
+            }
+            
+            #topnav {
+                padding: 10px 20px;
+            }
+            
+            #topnav nav {
+                gap: 10px;
+                justify-content: center;
+            }
+            
+            #topnav a {
+                padding: 8px 12px;
+                font-size: 0.9rem;
+            }
+            
+            #MainContent {
+                padding: 25px;
+                width: 95%;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-section {
+                flex-direction: column;
+            }
+            
+            .image-grid {
+                flex-direction: column;
+            }
+            
+            .image-grid img {
+                width: 100%;
+            }
+        }
+        
+        /* Large smartphones (576px and below) */
+        @media (max-width: 576px) {
+            .university-name h1 {
+                font-size: 1.6rem;
+            }
+            
+            .university-name p {
+                font-size: 0.9rem;
+            }
+            
+            #topnav a {
+                padding: 6px 8px;
+                font-size: 0.85rem;
+            }
+            
+            #MainContent {
+                padding: 20px;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .page-header p {
+                font-size: 0.9rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+            
+            .hero-content h3 {
+                font-size: 1.2rem;
+            }
+            
+            .career-section h1 {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .benefits-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .footer-links a {
+                margin: 5px 0;
+            }
+        }
+        
+        /* Small smartphones (400px and below) */
+        @media (max-width: 400px) {
+            .university-name h1 {
+                font-size: 1.4rem;
+            }
+            
+            #topnav a {
+                font-size: 0.8rem;
+                padding: 5px 6px;
+            }
+            
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="maindiv">
+        <div id="logo">
+            <img src="IMAGES/logo.gif" alt="Skylight University Logo">
+            <div class="university-name">
+                <h1>Skylight University</h1>
+                <p>Empowering Minds, Transforming Lives</p>
+            </div>
+        </div>
+        <div id="topnav">
+            <nav>
+                <a href="home.html"><i class="fas fa-home"></i> Home</a>
+                <a href="aboutus.html"><i class="fas fa-info-circle"></i> About Us</a>
+                <a href="contactus.html"><i class="fas fa-envelope"></i> Contact Us</a>
+                <a href="careers.html"><i class="fas fa-briefcase"></i> Careers</a>
+                <a href="courses.html"><i class="fas fa-book"></i> Courses</a>
+                <a href="placements details.html"><i class="fas fa-user-tie"></i> Placement</a>
+                <a href="skylight university sign in.html"><i class="fas fa-sign-in-alt"></i> Sign In</a>
+                <a href="skylightcourseform.html"><i class="fas fa-file-alt"></i> Course Form</a>
+                <a href="Universitygallery.html" class="active"><i class="fas fa-images"></i> Gallery</a>
+                <a href="admission.html"><i class="fas fa-graduation-cap"></i> Admission</a>
+            </nav>
+        </div>
+        <div id="MainContent">
+            <div class="page-header">
+                <h1>Careers at Skylight University</h1>
+                <p>Join our community of educators, researchers, and professionals dedicated to shaping the future through education and innovation.</p>
+            </div>
+            
+            <div class="hero-section">
+                <div class="hero-image">
+                    <img src="IMAGES/university img1.jpg" alt="Skylight University Campus">
+                </div>
+                <div class="hero-content">
+                    <h2>CAREERS @SkyLight University</h2>
+                    <h3>Build for everyone. Create for everyone.</h3>
+                    <p>Skylight University offers unparalleled opportunities for professional development in ideal surroundings with high quality of life. Enjoy professional and personal perks including accommodation, research grants, and a vibrant academic community.</p>
+                    <button class="btn">View Current Openings</button>
+                </div>
+            </div>
+            
+            <div class="career-section">
+                <h1>Why Work With Us?</h1>
+                <div class="benefits-container">
+                    <div class="benefit-card">
+                        <h3>Competitive Compensation</h3>
+                        <p>We offer salary packages that compete with the best in the industry, along with comprehensive benefits including health insurance and retirement plans.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Professional Growth</h3>
+                        <p>Access to continuous learning opportunities, conferences, workshops, and tuition remission for further education.</p>
+                    </div>
+                    <div class="benefit-card">
+                        <h3>Work-Life Balance</h3>
+                        <p>Generous vacation time, flexible work arrangements, and family-friendly policies to support your personal life.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="career-section">
+                <h1>Summer College Student Internships</h1>
+                <div class="image-grid">
+                    <img src="IMAGES/iternship img.jpg" alt="Student Internship">
+                    <img src="IMAGES/students img.jpg" alt="Students Working">
+                </div>
+                <p>Offered in partnership with leading organizations, our 10-Week College Internship provides a unique opportunity for college students in their junior or senior year who are considering graduate school, medical school, or industrial research careers to spend 10 weeks in an innovative and educational program.</p>
+                <p>By pairing students with scientific research professionals, they gain firsthand experience in research and other scholarly activities. This unique experience allows participants the opportunity to gain a personal perspective on the entire scientific process: from formulating and testing hypotheses to working with an advisor in a state-of-the-art research laboratory.</p>
+                <p>Areas of research activity could include translational therapeutics, experimental molecular biology and virology, biomarker discovery, and medicinal and computational sciences.</p>
+                <button class="btn">Learn More About Internships</button>
+            </div>
+            
+            <div class="career-section">
+                <h1>Graduate Programs</h1>
+                <div class="image-grid">
+                    <img src="IMAGES/career img1.jpg" alt="Graduate Students">
+                </div>
+                <h3>Geisinger Commonwealth School of Medicine Partnership</h3>
+                <p>Students can earn their master's degree in biomedical sciences (MBS) through our partnership with Geisinger Commonwealth School of Medicine. Students are taught by Skylight University professors and complete their MBS in as little as 16 months by attending evening classes on our campus.</p>
+                <p>The unique location within one of the nation's most successful academic environments connects students with world-class researchers and entrepreneurs in an environment conducive to rich and innovative learning experiences. The class times are scheduled to accommodate working adults who want to earn an MBS for professional advancement or to pursue a higher degree in medicine or research.</p>
+                <button class="btn">Explore Graduate Programs</button>
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 Skylight University. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
